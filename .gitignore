@@ -1,0 +1,12 @@
+# Jekyll 산출물
+jekyll/_site/
+jekyll/.jekyll-cache/
+jekyll/.sass-cache/
+jekyll/vendor/
+.bundle/
+
+# Python
+__pycache__/
+
+# OS
+.DS_Store
