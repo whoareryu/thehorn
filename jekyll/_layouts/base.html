@@ -30,6 +30,7 @@
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>장부</a>
       <a href="{{ '/screens/' | relative_url }}"{% if page.url == '/screens/' %} aria-current="page"{% endif %}>한 판 따라가기</a>
       <a href="{{ '/docs/' | relative_url }}"{% if page.url contains '/docs/' %} aria-current="page"{% endif %}>문서 서가</a>
+      <a href="{{ '/kanban/' | relative_url }}"{% if page.url == '/kanban/' %} aria-current="page"{% endif %}>칸반</a>
       <a href="{{ '/log/' | relative_url }}"{% if page.url == '/log/' %} aria-current="page"{% endif %}>개발 로그</a>
     </div>
   </div>
