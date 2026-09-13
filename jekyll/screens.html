@@ -27,9 +27,11 @@ description: 본부에서 검증까지 — 기획서 §47 Screen Flow 순서로 
         <div class="chap-head" style="margin-bottom:8px;">
           <span class="numeral" aria-hidden="true">{{ forloop.index }}</span>
           <div>
-            <p class="kicker">P0 #{{ scr.num }} · {{ scr.name }} · {{ scr.ref }}</p>
+            {% comment %} P0 번호와 조항 인용은 팀 내부 코드다 — 방문자에게는 몇 번째 화면인지만 먼저 보인다(QA R1 voter) {% endcomment %}
+            <p class="kicker">{{ forloop.index }}번째 화면 · {{ scr.name }}</p>
             <h2 style="font-size:30px;">{{ scr.ko }}</h2>
             <p class="lead" style="font-size:17px;">{{ scr.say }}</p>
+            <p class="muted" style="font-size:12.5px;margin-top:6px;">원문 {{ scr.ref }} · Visual Guide §15 의 P0 #{{ scr.num }}</p>
           </div>
         </div>
         {% capture mockpath %}mock/{{ scr.mock }}.html{% endcapture %}

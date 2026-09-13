@@ -52,7 +52,9 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(43,33,24,.08);paddi
 .brand .seal{width:30px;height:30px;color:var(--wax-2);}
 .brand b{font-family:var(--serif);font-weight:900;font-size:19px;letter-spacing:-.02em;}
 .brand small{font-family:var(--cinzel);font-size:10.5px;letter-spacing:.22em;color:var(--ember);display:block;line-height:1;margin-top:2px;}
-.nav-links{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:flex-end;}
+/* margin-left:auto 로 오른쪽에 붙인다. flex:1 + justify-content:flex-end 는 좁은 화면에서
+   넘친 항목을 시작 쪽으로 밀어내 첫 링크에 닿을 수 없게 만들었다(QA R1 voter). */
+.nav-links{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;margin-left:auto;}
 .nav-links::-webkit-scrollbar{display:none;}
 .nav-links a{color:var(--on-night-2);text-decoration:none;font-size:14.5px;font-weight:500;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;}
 .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--on-night);border-bottom-color:var(--ember);}
@@ -189,7 +191,12 @@ ul.no li::before{background:transparent;border:1.5px solid var(--ink-3);}
 .mock-bar .rv{width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#b3a693,var(--iron-2));box-shadow:0 0 0 1px rgba(0,0,0,.4);}
 .mock-bar b{font-family:var(--cinzel);letter-spacing:.14em;font-size:12px;color:var(--on-night-2);font-weight:600;}
 .mock-bar .ko{color:var(--on-night-3);}
-.badge-mock{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:2px 8px;border-radius:4px;border:1px dashed var(--on-night-3);color:var(--on-night-2);white-space:nowrap;}
+/* 전장처럼 실감 나는 목업에서 회색 점선 배지는 지나치기 쉬웠다 — 호박색으로 올린다(QA R1 voter). */
+.badge-mock{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:4px;
+  border:1px dashed var(--ember);background:rgba(217,145,58,.16);color:var(--ember-2);white-space:nowrap;font-weight:700;}
+/* 넓은 목업은 좁은 화면에서 가로로 밀어야 한다. 모바일엔 스크롤바가 안 보여 힌트를 준다. */
+.scroll-hint{display:none;font-size:11.5px;color:var(--on-night-3);margin-left:8px;white-space:nowrap;}
+@media (max-width:860px){.scroll-hint{display:inline;}}
 .mock-scroll{overflow-x:auto;}
 .mock-body{padding:20px;min-width:0;}
 .mock-body.wide{min-width:760px;}
@@ -202,7 +209,8 @@ ul.no li::before{background:transparent;border:1.5px solid var(--ink-3);}
 .res .ic{color:var(--ember);}
 .res small{font-weight:500;color:var(--on-night-3);}
 .plate{background:linear-gradient(180deg,rgba(255,255,255,.035),transparent),var(--leather);border:1px solid var(--iron);border-radius:10px;padding:14px;}
-.plate h5{margin:0 0 8px;font-family:var(--cinzel);font-size:11.5px;letter-spacing:.18em;color:var(--on-night-3);font-weight:600;}
+/* 목업 안 작은 제목은 h5 였다가 p.ph 가 됐다 — 장(h2) 아래에서 제목 계층을 건너뛰었다(QA R1 frontend). */
+.plate .ph{margin:0 0 8px;font-family:var(--cinzel);font-size:11.5px;letter-spacing:.18em;color:var(--on-night-3);font-weight:700;}
 .gbtn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:8px;border:1px solid var(--iron-2);background:linear-gradient(180deg,#463d34,#302821);color:var(--on-night);font-weight:700;font-size:13.5px;font-family:var(--sans);}
 .gbtn.hot{background:linear-gradient(180deg,var(--ember-2),var(--ember));color:var(--night);border-color:#f3c688;}
 .gbtn.wax{background:linear-gradient(180deg,var(--wax-2),var(--wax));color:var(--parch);border-color:#c4533f;}

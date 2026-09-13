@@ -13,13 +13,8 @@
       <table>
         <thead><tr><th>P0 Source Asset</th><th>수량</th></tr></thead>
         <tbody>
-          <tr><td>Player <span class="sub">Master 10 · Core Pose 30 · Attack/Special 24 · Weapon/Tool 15</span></td><td class="num">79</td></tr>
-          <tr><td>Enemy 3종 · Boss 1종</td><td class="num">18</td></tr>
-          <tr><td>Background</td><td class="num">6</td></tr>
-          <tr><td>VFX</td><td class="num">12</td></tr>
-          <tr><td>Icon (SVG 우선)</td><td class="num">20–24</td></tr>
-          <tr><td>Frame</td><td class="num">8</td></tr>
-          <tr><td><strong>합계</strong> <span class="sub">숫자보다 Visual QA 통과 개수가 중요하다</span></td><td class="num"><strong>143–147</strong></td></tr>
+          {% for a in site.data.economy.assets %}<tr><td>{{ a.k }} <span class="sub">{{ a.sub }}</span></td><td class="num">{{ a.n }}</td></tr>{% endfor %}
+          <tr><td><strong>합계</strong> <span class="sub">숫자보다 Visual QA 통과 개수가 중요하다</span></td><td class="num"><strong>{{ site.data.economy.assets_total }}</strong></td></tr>
         </tbody>
       </table>
     </div>

@@ -1,5 +1,5 @@
 <figure class="mock" data-mock="camp-result">
-{% include mock/_bar.html t="CAMP RESULT" ko="Turn 1 · 지시 REST" %}
+{% include mock/_bar.html scroll="1" t="CAMP RESULT" ko="Turn 1 · 지시 REST" %}
 <div class="mock-scroll"><div class="mock-body wide">
   <div class="hud" style="margin-bottom:12px;"><span class="res"><svg class="ic" aria-hidden="true"><use href="#i-rest"/></svg>지시 · REST</span>
   {% assign obey = site.data.mock_roster | where_exp: "p", "p.rest.act == 'REST'" %}

@@ -207,7 +207,7 @@
 .yr i{font-style:normal;font-size:24px;}
 .yr-say{font-family:var(--cinzel);letter-spacing:.34em;font-size:12.5px;color:var(--on-night-2);margin:6px 0 0;}
 .years .plate{text-align:left;}
-.years h5{display:flex;align-items:center;gap:6px;}
+.years .ph{display:flex;align-items:center;gap:6px;}
 
 /* 평가 대시보드 */
 .ev-head{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin:0 0 14px;background:var(--iron);border:1px solid var(--iron);border-radius:9px;overflow:hidden;}
@@ -224,7 +224,8 @@
 .heat th,.heat td{padding:0;border:0;background:none;text-align:center;}
 .heat thead th{font-family:var(--mono);color:var(--on-night-3);font-size:10.5px;padding-bottom:2px;}
 .heat tbody th{text-align:left;color:var(--on-night-2);font-weight:600;white-space:nowrap;padding-right:4px;}
-.heat .notrun{font-size:8.5px;padding:4px 3px;width:100%;letter-spacing:0;}
+/* 8.5px 는 폰에서 빗금으로만 보였다 — 최소 10px(QA R1 voter). */
+.heat .notrun{font-size:10px;padding:4px 3px;width:100%;letter-spacing:0;}
 .scatter{position:relative;color:var(--on-night-3);}
 .scatter svg{width:100%;display:block;}
 .scatter .notrun{position:absolute;left:55%;top:42%;transform:translate(-50%,-50%);}

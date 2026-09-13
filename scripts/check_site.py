@@ -34,7 +34,14 @@ BANNED_GAMES = [
     "니케", "블루 아카이브", "Blue Archive", "로드 오브 히어로즈",
 ]
 # 기획서 §34 · Visual Guide §16: 뿔피리는 Resource 가 아니다. 남은 개수 표기 금지.
-BANNED_HORN = [re.compile(r"Horn\s*remaining", re.I), re.compile(r"Horn\s*[×x]\s*\d", re.I), re.compile(r"뿔피리\s*[×x]\s*\d")]
+BANNED_HORN = [
+    re.compile(r"Horn\s*remaining", re.I),
+    re.compile(r"Horn\s*[×x]\s*\d", re.I),
+    re.compile(r"뿔피리\s*[×x]\s*\d"),
+    # "뿔피리 3개 / 3회 / 3번" 처럼 개수로 세는 표현도 Resource 취급이다(QA R1 frontend).
+    re.compile(r"뿔피리\s*\d+\s*[개회번]"),
+    re.compile(r"Horn\s*\d+\s*(?:uses?|left|remaining)", re.I),
+]
 
 
 class Page(HTMLParser):
@@ -71,7 +78,13 @@ class Page(HTMLParser):
 
 def figures(html: str, mock: str | None = None) -> list[str]:
     """<figure class="mock" …> … </figure> 조각들. 목업 안에 figure 를 중첩하지 않는다는 전제."""
-    pat = r'<figure class="mock"[^>]*' + (rf'data-mock="{mock}"' if mock else "") + r"[^>]*>.*?</figure>"
+    # class 에 다른 이름이 섞여도(class="mock tour") 잡아야 한다 — 예전 정규식은 class="mock" 만
+    # 맞아서, 클래스를 하나 더 붙이면 배지 검사를 통째로 빠져나갔다(QA R1 frontend).
+    pat = (
+        r'<figure\b(?=[^>]*\bclass="[^"]*\bmock\b)'
+        + (rf'(?=[^>]*\bdata-mock="{mock}")' if mock else "")
+        + r"[^>]*>.*?</figure>"
+    )
     return re.findall(pat, html, re.S)
 
 

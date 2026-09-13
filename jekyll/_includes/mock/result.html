@@ -1,15 +1,15 @@
 {% assign mvp = site.data.mock_roster | where: "id", "A" | first %}
 <figure class="mock" data-mock="result">
-{% include mock/_bar.html t="MISSION RESULT" ko="전과 보고 · M2" %}
+{% include mock/_bar.html scroll="1" t="MISSION RESULT" ko="전과 보고 · M2" %}
 <div class="mock-scroll"><div class="mock-body wide res-grid">
   <div class="plate">
-    <h5>RESULT</h5>
+    <p class="ph">RESULT</p>
     <p class="big">방책 사수 <span class="ok">성공</span></p>
     <ol class="flow-n"><li class="on">Result</li><li class="on">Reward</li><li class="on">MVP</li><li>Casualty</li><li>Taken?</li><li>AI Growth</li></ol>
     <div class="hud" style="margin-top:12px;"><span class="res"><svg class="ic" aria-hidden="true"><use href="#i-gold"/></svg>+120 <small>Gold</small></span><span class="res"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg>생환자 +1</span></div>
   </div>
   <div class="plate mvp">
-    <h5>MVP · Contribution Score</h5>
+    <p class="ph">MVP · Contribution Score</p>
     <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px;">{% include emb.html c=mvp.cls %}<div><b style="font-family:var(--serif);font-size:17px;">{{ mvp.name }}</b><br><span class="dim" style="font-size:12.5px;">Guardian · Growth +1 +2</span></div><svg class="ic" style="margin-left:auto;width:28px;height:28px;color:var(--ember-2);" aria-hidden="true"><use href="#i-mvp"/></svg></div>
     <ul class="contrib">
       <li><span>Damage prevented</span><span class="meter"><i style="width:90%"></i></span></li>
@@ -19,7 +19,7 @@
     </ul>
   </div>
   <div class="plate">
-    <h5>CASUALTY</h5>
+    <p class="ph">CASUALTY</p>
     <ul class="cas">
       <li><span class="tagn inj">Injured</span>이졸데 · 다음 계약 전 회복 필요</li>
       <li><span class="tagn tak">Taken</span>브리지트 · 돌아오지 못했다</li>

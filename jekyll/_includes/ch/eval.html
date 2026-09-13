@@ -8,9 +8,15 @@
     <p><strong>아직 공식 E4 실행 결과가 없습니다.</strong> 평가 상태는 <code>{{ e.state }}</code> 입니다. 아래 대시보드는 화면 구조만 보여주며, 모든 결과 칸은 <code>NOT RUN</code> 입니다 — 실험하지 않은 값은 채우지 않습니다(Evaluation PART 1 §42).</p>
   </div>
 
+  <p class="muted" style="margin:0 0 4px;">8B · 4B · 2B · 1B 는 모델 크기다 — B 는 파라미터 10억 개를 뜻하고, 작을수록 가볍고 싸지만 판단이 무너지기 쉽다.</p>
   {% include mock/evaluation.html %}
 
-  <div class="grid g2" style="margin-top:28px;">
+  <div class="leaf" style="margin-top:28px;border-left:3px solid var(--wax);">
+    <h4>“그냥 랜덤 아니에요?”</h4>
+    <p>아니라는 것을 말이 아니라 재현으로 보인다. 난수는 전부 주사위 포트 하나를 통하므로 <strong>같은 Seed 는 같은 판</strong>이 된다. 단원의 판단은 State · Reason Code · 판정 결과와 함께 트레이스에 남고, Replay 는 그 트레이스로 같은 사건을 다시 만든다. 애니메이션은 판정을 바꾸지 않는다. 그래서 모델만 바꿨을 때 달라진 행동은 우연이 아니라 <strong>모델의 차이</strong>로 읽을 수 있다 — v4 코드는 이것을 다른 프로세스에서 돌린 CI 로 이미 확인하고 있다(<a href="#status">XII장</a>).</p>
+  </div>
+
+  <div class="grid g2" style="margin-top:16px;">
     <div class="leaf">
       <h4>연구 질문</h4>
       <ul class="ink" style="margin-top:10px;">{% for q in e.research_questions %}<li><strong>{{ q.id }}</strong> {{ q.q }}</li>{% endfor %}</ul>
@@ -24,7 +30,7 @@
 
   <div class="sub-h"><h3>쉬운 시험부터, 통과한 모델만 다음 시험으로</h3></div>
   <ol class="flow">{% for s in e.funnel %}<li{% if s.s == 3 %} class="hot"{% endif %}>{{ s.s }} · {{ s.name }}</li>{% endfor %}</ol>
-  <p class="muted" style="margin-top:10px;">HOLDOUT 을 보고 Prompt 를 고치면 새 평가 버전이다. 합격선은 시험 전에 얼리고(FROZEN), 결과를 보고 낮추지 않는다.</p>
+  <p class="muted" style="margin-top:10px;">DEV 는 연습 문제(Prompt 를 고쳐도 된다), HOLDOUT 은 진짜 시험이다. HOLDOUT 을 보고 Prompt 를 고치면 새 평가 버전이다. 합격선은 시험 전에 얼리고(FROZEN), 결과를 보고 낮추지 않는다.</p>
 
   <div class="grid g2" style="margin-top:20px;align-items:start;">
     <div class="table-wrap">
