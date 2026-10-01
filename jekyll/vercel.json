@@ -1,0 +1,6 @@
+{
+  "framework": "jekyll",
+  "installCommand": "bundle install",
+  "buildCommand": "python3 ../scripts/split_devlog.py && bundle exec jekyll build",
+  "outputDirectory": "_site"
+}

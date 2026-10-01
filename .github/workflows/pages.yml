@@ -21,6 +21,8 @@ concurrency:
 
 jobs:
   build:
+    # 내 계정 복사본(whoareryu/thehorn)에서는 돌지 않는다 — 이 복사본은 Vercel 이 rpg.whoareryu.cloud 로 배포한다
+    if: github.repository == 'masterlesscompany/thehorn.masterlesscompany.com'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -53,6 +55,8 @@ jobs:
           path: jekyll/_site
 
   deploy:
+    # 내 계정 복사본(whoareryu/thehorn)에서는 돌지 않는다 — 이 복사본은 Vercel 이 rpg.whoareryu.cloud 로 배포한다
+    if: github.repository == 'masterlesscompany/thehorn.masterlesscompany.com'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
