@@ -19,7 +19,7 @@ lang: ko
 # 그래서 사이트 안의 모든 내부 링크는 반드시 relative_url 필터를 통과시킨다.
 # scripts/check_site.py 가 원시 `href="/…"` 의 부재를 검사한다.
 baseurl: ""
-url: "https://thehorn.masterlesscompany.com"
+url: "https://rpg.whoareryu.cloud"
 github_org: masterlesscompany
 github_repo: thehorn.masterlesscompany.com
 
